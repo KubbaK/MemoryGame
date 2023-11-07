@@ -12,6 +12,7 @@
 		3FA0D7652ADE8D85008599D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0D7642ADE8D85008599D5 /* Assets.xcassets */; };
 		3FA0D7682ADE8D85008599D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA0D7672ADE8D85008599D5 /* Preview Assets.xcassets */; };
 		3FA0D76F2ADE96D0008599D5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0D76E2ADE96D0008599D5 /* CardView.swift */; };
+		3FA729562AFA57BF00F84075 /* ThemeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA729552AFA57BF00F84075 /* ThemeButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3FA0D7642ADE8D85008599D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FA0D7672ADE8D85008599D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FA0D76E2ADE96D0008599D5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3FA729552AFA57BF00F84075 /* ThemeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				3FA0D7602ADE8D85008599D5 /* MemoryGameApp.swift */,
 				3FA0D7622ADE8D85008599D5 /* ContentView.swift */,
 				3FA0D76E2ADE96D0008599D5 /* CardView.swift */,
+				3FA729552AFA57BF00F84075 /* ThemeButtonView.swift */,
 				3FA0D7642ADE8D85008599D5 /* Assets.xcassets */,
 				3FA0D7662ADE8D85008599D5 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			files = (
 				3FA0D7632ADE8D85008599D5 /* ContentView.swift in Sources */,
 				3FA0D76F2ADE96D0008599D5 /* CardView.swift in Sources */,
+				3FA729562AFA57BF00F84075 /* ThemeButtonView.swift in Sources */,
 				3FA0D7612ADE8D85008599D5 /* MemoryGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
