@@ -29,3 +29,31 @@ struct ThemeButtonView: View {
 #Preview {
     ThemeButtonView(color: Color.red, theme: 1, icon: "circle", cardColor: .constant(Color.red), iconQuantity: .constant(8))
 }
+
+
+
+
+
+
+// import SwiftUI
+
+// struct ThemeButton: View {
+//     var content: String
+//     var color: Color
+//     var icon: String
+    
+//     var body: some View {
+//         VStack{
+//             Image(systemName: icon)
+//                 .font(.system(size: 50.0))
+//                 .foregroundColor(color)
+//             Text(content)
+//                 .font(.system(size: 14))
+//                 .foregroundColor(color)
+//         }
+//     }
+// }
+
+// #Preview {
+//     ThemeButton(content: "Motyw 1", color: .red, icon: "pencil.circle")
+// }
