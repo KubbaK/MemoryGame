@@ -11,8 +11,8 @@ struct ContentView: View {
     
     @State var ikony = ["😎","🥹","☺️","😁","😂","😇","😡","🥰"]
     @State var ileIkon = 0
-    @State var kolory = Color.red
-    @State var iconQuantity = 8
+    @State var aktualnyKolor = Color.red
+    @State var aktualnaIlosc = 8
     
     func adjustCardNumber(by offset: Int, symbol: String) -> some View{
         let noweIkony = ileIkon + offset
@@ -37,21 +37,22 @@ struct ContentView: View {
 //    }
     
     func changeTheme(k : Color,q: Int) {
-        kolory = k;
-        iconQuantity = q;
+        self.aktualnyKolor = k;
+        self.aktualnaIlosc = q;
+        self.ikony.shuffle()
     }
     
     
     var ButtonDisplay: some View {
         HStack{
-            ThemeButtonView(color: Color.red, theme: 1, icon: "circle.fill", cardColor: .constant(Color.red), iconQuantity: .constant(8)).onTapGesture{
-                changeTheme(k: .red, q: 8)
+            ThemeButtonView(color: Color.green, theme: "1", icon: "circle.fill").onTapGesture{
+                changeTheme(k: .green, q: 8)
             }
-            ThemeButtonView(color: Color.blue, theme: 2, icon: "circle", cardColor: .constant(Color.blue), iconQuantity: .constant(10)).onTapGesture{
-                changeTheme(k: .blue, q: 10)
+            ThemeButtonView(color: Color.red, theme: "2", icon: "circle.fill").onTapGesture{
+                changeTheme(k: .red, q: 10)
             }
-            ThemeButtonView(color: Color.green, theme: 3, icon: "circle.fill", cardColor: .constant(Color.green), iconQuantity: .constant(12)).onTapGesture{
-                changeTheme(k: .green, q: 12)
+            ThemeButtonView(color: Color.blue, theme: "3", icon: "circle.fill").onTapGesture{
+                changeTheme(k: .blue, q: 12)
             }
         }
     }
@@ -60,10 +61,10 @@ struct ContentView: View {
         ScrollView{
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 70))],spacing:10)
             {
-                ForEach(0..<iconQuantity, id: \.self){ _ in
-                    CardView(karta: ikony.randomElement()!).aspectRatio(2/3, contentMode: .fit)
+                ForEach(0..<aktualnaIlosc, id: \.self){ _ in
+                    CardView(karta: ikony.randomElement()!, kolor: aktualnyKolor).aspectRatio(2/3, contentMode: .fit)
                 }
-            }.foregroundColor(kolory)
+            }.foregroundColor(aktualnyKolor)
             
         }}
     

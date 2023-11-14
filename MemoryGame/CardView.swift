@@ -11,39 +11,30 @@ import SwiftUI
 struct CardView: View {
     @State var czyOdkryta = false
     var karta: String
-    var body: some View {
+    var kolor: Color
         
-        Group{
-            if(czyOdkryta == false){
+        var body: some View {
+            ZStack {
+                Group {
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.blue)
-                        .stroke(Color.blue, lineWidth: 3)
+                        .fill(.white)
+                        .strokeBorder(kolor, lineWidth: 2)
+                    
+                    Text(karta)
                         .font(.largeTitle)
-                        .frame(height:100)
-                        .onTapGesture {
-                            czyOdkryta = !czyOdkryta
-                        }
-
-            }
-        else{
-            ZStack{
+                }
+                .opacity(czyOdkryta ? 1 : 0)
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.white)
-                    .stroke(Color.blue, lineWidth: 3)
-                    .font(.largeTitle)
-                    .frame(height:100)
-                    .onTapGesture {
-                        czyOdkryta = !czyOdkryta
-                    }
-                Text(karta)
+                    .fill(kolor)
+                    .opacity(czyOdkryta ? 0 : 1)
             }
+            .onTapGesture (perform: {
+                czyOdkryta.toggle()
+            })
         }
-        }.opacity(czyOdkryta ? 2 : 1)
-    }
 }
-
 #Preview {
-    CardView(karta: "😁")
+    CardView(karta: "😁",kolor:Color.red)
 }
 
 
