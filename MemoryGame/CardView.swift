@@ -46,33 +46,27 @@ struct CardView: View {
 // import SwiftUI
 
 // struct CardView: View {
-//     @State var isFaceUp: Bool = false
-//     var content: String
-//     var themeColor: Color
-    
-//     var body: some View {
-//         ZStack {
-//             Group {
-//                 RoundedRectangle(cornerRadius: 12)
-//                     .fill(.white)
-//                     .strokeBorder(themeColor, lineWidth: 2)
-                    
-//                 Text(content)
-//                     .font(.largeTitle)
-//             }
-//             .opacity(isFaceUp ? 1 : 0)
-//             RoundedRectangle(cornerRadius: 12)
-//                 .fill(themeColor)
-//                 .opacity(isFaceUp ? 0 : 1)
-//         }
-//         .onTapGesture (perform: {
-//             isFaceUp.toggle()
-//         })
+//     var card: MemoGameModel<String>.Card
+//     var color: Color
+//     init(_ card:MemoGameModel<String>.Card, _ color: Color) {
+//         self.card = card
+//         self.color = color
 //     }
-// }
-
-// struct CardView_Previews: PreviewProvider {
-//     static var previews: some View {
-//         CardView(content: "😄", themeColor: Color.red)
+//     var body: some View {
+//         ZStack{
+//             let base = RoundedRectangle(cornerRadius: 12)
+//             Group {
+//                 base.fill(Color.white)
+//                 base.strokeBorder(lineWidth: 3)
+//                 Text(card.content).font(.system(size: 200))
+//                     .minimumScaleFactor(0.01)
+//                     .aspectRatio(1,contentMode: .fit)
+                    
+//             }.opacity(card.isFaceUp ? 1 : 0)
+//             base.fill().opacity(card.isFaceUp ? 0 : 1)
+//             }
+//         .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+//         .foregroundColor(color)
+        
 //     }
 // }
