@@ -31,23 +31,50 @@ struct ThemeButtonView: View {
 
 // import SwiftUI
 
-// struct ThemeButton: View {
-//     var content: String
+// struct Theme: Identifiable{
+//     var id: String
+//     var name: String
+//     var emojis: [String]
 //     var color: Color
-//     var icon: String
-    
-//     var body: some View {
-//         VStack{
-//             Image(systemName: icon)
-//                 .font(.system(size: 50.0))
-//                 .foregroundColor(color)
-//             Text(content)
-//                 .font(.system(size: 14))
-//                 .foregroundColor(color)
-//         }
-//     }
+
 // }
 
-// #Preview {
-//     ThemeButton(content: "Motyw 1", color: .red, icon: "pencil.circle")
+// import SwiftUI
+
+// struct ThemeButton: View {
+//     var theme: Theme
+//         var action: () -> Void
+
+//         var body: some View {
+//             Button(action: action) {
+//                 VStack {
+//                     Image(systemName: "circle.fill") // Zastąp z odpowiednią ikoną
+//                         .font(.title)
+//                         .foregroundColor(theme.color)
+//                     Text(theme.name)
+//                         .font(.caption)
+//                         .padding(.top, 2)
+//                 }
+//             }
+//         }
+// }
+
+
+
+// import SwiftUI
+
+// class ThemeManager: ObservableObject, Identifiable {
+//     @Published var themes: [Theme] = [
+//         Theme(id: "1",name: "Sunny", emojis: ["☀️", "🌻", "🕶", "🍦","☀️", "🌻", "🕶", "🍦"], color: .yellow),
+//         Theme(id: "2",name: "Nocturne", emojis: ["🌜", "🦉", "🌌", "🔭","🌜", "🦉", "🌌", "🔭"], color: .gray),
+//         Theme(id: "3",name: "Nature", emojis: ["🌿", "🌵", "🍄", "🐞","🌿", "🌵", "🍄", "🐞"], color: .green)
+//     ]
+    
+//     @Published var currentTheme: Theme = Theme(id: "1",name: "Sunny", emojis: ["☀️", "🌻", "🕶", "🍦","☀️", "🌻", "🕶", "🍦","☀️", "🌻", "🕶", "🍦"],color: .yellow)
+//     @Published var themeColor: Color = .blue
+
+//     func changeTheme(to theme: Theme) {
+//         currentTheme = theme
+//         themeColor = theme.color
+//     }
 // }
