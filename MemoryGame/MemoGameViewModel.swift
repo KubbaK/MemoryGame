@@ -31,56 +31,67 @@ class MemoGameViewModel : ObservableObject{
 }
 
 
-// import Foundation
-
-// struct MemoGameModel<CardContent> where CardContent : Equatable {
+ 
+// class MemoGameViewModel: ObservableObject {
     
-//     private(set) var cards: Array<Card>
-   
-//     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
-//         cards=[]
-//         for pair in 0..<max(2,numberOfPairsOfCards){
-//             let content = cardContentFactory(pair)
-//             cards.append(Card(id:"\(pair+1)a", content: content))
-//             cards.append(Card(id:"\(pair+1)b",content: content))
-//         }
-//     }
+//     let emojisTheme1 =  ["😃","😆","🙃","😳","😎","😮"]
+//     let emojisTheme2 = ["🥕", "🍆", "🌽", "🍅","🥕", "🍆"]
+//     let emojisTheme3 = ["🐶", "🐱", "🦁", "🐵", "🐘", "🦊"]
     
     
-//     mutating func choose(_ card: Card) {
-//         if let chosenIndex = cards.firstIndex(where: {$0.id == card.id}) {
-           
-//                 cards[chosenIndex].isFaceUp = true
-          
-//         }
-//     }
     
-//     private func index(of card: Card) -> Int? {
-//         for index in cards.indices {
-//             if cards[index].id == card.id {
-//                 return index
+//     private static var emojis:[String] =  ["😃","😆","🙃","😳","😎","😮"]
+    
+//     private static func createMemoGameModel() -> MemoGameModel<String> {
+//         return MemoGameModel<String>(numberOfPairsOfCards: emojis.count) {
+//             index in
+//             if emojis.indices.contains(index) {
+//                 return emojis[index]
+//             }else{
+//                 return "??"
 //             }
 //         }
-//         return nil
 //     }
     
-//     mutating func shuffle(){
-//         cards.shuffle()
-//     }
-     
+//     @Published private var model = createMemoGameModel()
     
-//     struct Card : Equatable, Identifiable {
-        
-//         var id: String
-//         var isFaceUp: Bool = false
-//         var isMatched: Bool = false
-//         var content: CardContent
+//     var cards: Array<MemoGameModel<String>.Card> {
+//         return model.cards
 //     }
     
-// }
-
-// extension Array {
-//     var only: Element? {
-//         count == 1 ? first :nil
+//     private static func setEmojis(newEmojis: [String]){
+//         emojis = newEmojis
 //     }
+    
+//     @Published var themeColor  = Color.blue
+    
+//     func changeTheme(theme: String){
+//         if(theme == "Motyw 2"){
+//             self.themeColor = Color.red
+//             MemoGameViewModel.setEmojis(newEmojis: emojisTheme2)
+//             model = MemoGameViewModel.createMemoGameModel()
+//             shuffle()
+//         }
+//         else if(theme == "Motyw 3"){
+//             self.themeColor = Color.green
+//             MemoGameViewModel.setEmojis(newEmojis: emojisTheme3)
+//             model = MemoGameViewModel.createMemoGameModel()
+//             shuffle()
+//         }
+//         else{
+//             self.themeColor = Color.blue
+//             MemoGameViewModel.setEmojis(newEmojis: emojisTheme1)
+//             model = MemoGameViewModel.createMemoGameModel()
+//             shuffle();
+//         }
+//     }
+    
+//     func shuffle(){
+//         model.shuffle()
+//     }
+    
+//     func choose(card: MemoGameModel<String>.Card){
+//         model.choose(card)
+//     }
+    
 // }
