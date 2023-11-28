@@ -10,32 +10,32 @@ import SwiftUI
 
 struct CardView: View {
     @State var czyOdkryta = false
-    var karta: String
+    var karta: MemoGameModel<String>.Karta
     var kolor: Color
         
-        var body: some View {
-            ZStack {
-                Group {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(.white)
-                        .strokeBorder(kolor, lineWidth: 2)
-                    
-                    Text(karta)
-                        .font(.largeTitle)
-                }
-                .opacity(czyOdkryta ? 1 : 0)
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(kolor)
-                    .opacity(czyOdkryta ? 0 : 1)
-            }
-            .onTapGesture (perform: {
-                czyOdkryta.toggle()
-            })
+    init(_ karta :MemoGameModel<String>.Karta, _ kolor: Color) {
+             self.karta = karta
+             self.kolor = kolor
         }
+    var body: some View {
+             ZStack{
+                 let base = RoundedRectangle(cornerRadius: 12)
+                 Group {
+                     base.fill(Color.white)
+                     base.strokeBorder(lineWidth: 3)
+                     Text(karta.zawartosc).font(.system(size: 200))
+                         .minimumScaleFactor(0.01)
+                         .aspectRatio(1,contentMode: .fit)
+                        
+                 }.opacity(karta.odwrocona ? 1 : 0)
+                 base.fill().opacity(karta.odwrocona ? 0 : 1)
+                 }
+             .opacity(karta.odwrocona || !karta.pasujaca ? 1 : 0)
+             .foregroundColor(kolor)
+            
+         }
 }
-#Preview {
-    CardView(karta: "😁",kolor:Color.red)
-}
+
 
 
 

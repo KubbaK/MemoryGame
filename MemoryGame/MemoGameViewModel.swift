@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class MemoGameViewModel : ObservableObject{
     @Published private(set) var model: MemoGameModel<String> = createMemoryGame()
@@ -14,19 +15,55 @@ class MemoGameViewModel : ObservableObject{
     private static let ikony2 = ["🐱","🐷","🐻‍❄️","🐸","🐼","🦁"]
     private static let ikony3 = ["🧑‍🦰","👨‍🦰","👩‍🦰","🧑‍🦱","👦","👧"]
 
-    private static var ikony = [""]
+    private static var ikonyZmienne:[String] = ["🍎","🍉","🍊","🍒","🍋","🫐"]
+    
+    private static func zmienIkony(noweIkony : [String]){
+        ikonyZmienne = noweIkony
+    }
+    
+    @Published var kolor  = Color.blue
+    
+    func wybor(schemat: String){
+             if(schemat == "Motyw 1"){
+                 self.kolor = Color.red
+                 MemoGameViewModel.zmienIkony(noweIkony: MemoGameViewModel.ikony1)
+                 model = MemoGameViewModel.createMemoryGame()
+                 shuffle()
+             }
+             else if(schemat == "Motyw 2"){
+                 self.kolor = Color.green
+                 MemoGameViewModel.zmienIkony(noweIkony: MemoGameViewModel.ikony2)
+                 model = MemoGameViewModel.createMemoryGame()
+                 shuffle()
+             }
+             else{
+                 self.kolor = Color.blue
+                 MemoGameViewModel.zmienIkony(noweIkony: MemoGameViewModel.ikony3)
+                 model = MemoGameViewModel.createMemoryGame()
+                 shuffle();
+             }
+         }
     
     private static func createMemoryGame() -> MemoGameModel<String>{
-        return(
-        MemoGameModel<String>(numberOfPairsOfCards: 8){ index in
-            if (ikony.indices.contains(index)){
-                return ikony[index]
+        return MemoGameModel<String>(numberOfPairsOfCards: ikonyZmienne.count) {
+            index in
+            if ikonyZmienne.indices.contains(index) {
+                return ikonyZmienne[index]
             }
             else{
                 return "??"
             }
-        })
+        }
     }
+
+        
+         func shuffle(){
+             model.shuffle()
+         }
+        
+         func choose(card: MemoGameModel<String>.Karta){
+             model.choose(card)
+         }
     
 }
 

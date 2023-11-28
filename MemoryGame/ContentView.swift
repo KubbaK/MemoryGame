@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var viewmodel = MemoGameViewModel()
     @State var ikony = ["😎","🥹","☺️","😁","😂","😇","😡","🥰"]
     @State var ileIkon = 0
     @State var aktualnyKolor = Color.red
@@ -59,10 +60,10 @@ struct ContentView: View {
     
     var cardDisplay: some View{
         ScrollView{
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 70))],spacing:10)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 85))],spacing:0)
             {
-                ForEach(0..<aktualnaIlosc, id: \.self){ _ in
-                    CardView(karta: ikony.randomElement()!, kolor: aktualnyKolor).aspectRatio(2/3, contentMode: .fit)
+                ForEach(0..<viewmodel.karty.count, id: \.self){ _ in
+                    CardView(viewmodel.karty[i], viewmodel.kolor)
                 }
             }.foregroundColor(aktualnyKolor)
             
@@ -87,7 +88,7 @@ struct ContentView: View {
                 Spacer(minLength: 25)
             }
         }
-        
+        .padding()
     }
 }
 
