@@ -113,45 +113,55 @@ struct ContentView: View {
 
 
 
-
 // import SwiftUI
 
-
 // struct ContentView: View {
-//     @ObservedObject var themeManager = ThemeManager()
+//     @ObservedObject var viewModel: MemoGameViewModel
+//     var karty : some View {
+//         LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0){
+//             ForEach(viewModel.karty){karta in
+//                 CardView(karta, viewModel)
+//                     .opacity(karta.isMatched ? 0 : 1)
+//                     .aspectRatio(2/3, contentMode: .fit)
+//                     .padding(4)
+//                     .onTapGesture {
+//                         viewModel.chooseWithAnimation(karta: karta)
+//                     }
+//             }
+//         }.foregroundColor(viewModel.color)
+//     }
     
 //     var body: some View {
 //         VStack {
+//             Text("Memo").font(.largeTitle)
 //             ScrollView{
-//                 Text("Memo").font(.largeTitle).padding(.top, 20)
-//                 cards
-//                 themeButtons
+//                 karty
 //             }
+//             Button("SHUFFLE") {
+//                 viewModel.shuffleWithAnimation()
+//             }
+//             Spacer()
+//             HStack{
+//                 ButtonView(action: {
+//                     viewModel.changeTheme(to: 1)}, symbol: Image(systemName: "star.fill") , text: "Motyw 1").foregroundColor(viewModel.color)
+//                 Spacer()
+//                 ButtonView(action: {
+//                     viewModel.changeTheme(to: 2)}, symbol: Image(systemName:"star.fill"), text: "Motyw 2").foregroundColor(viewModel.color)
+//                 Spacer()
+//                 ButtonView(action: {
+//                             viewModel.changeTheme(to: 3)}, symbol: Image(systemName: "star.fill"), text: "Motyw 3").foregroundColor(viewModel.color)
+//             }
+//             Spacer()
 //         }
 //         .padding()
-//         .foregroundColor(themeManager.themeColor)
 //     }
+// }
 
-//     var themeButtons: some View {
-//         HStack {
-//             ForEach(themeManager.themes, id: \.name) { theme in
-//                 ThemeButton(theme: theme, action: {
-//                     themeManager.changeTheme(to: theme)
-//                 })
-//             }
-//         }
+
+
+
+// struct ContentView_Previews: PreviewProvider {
+//     static var previews: some View {
+//         ContentView(viewModel: MemoGameViewModel())
 //     }
-
-//     var cards: some View {
-//         LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
-//             ForEach(Array(themeManager.currentTheme.emojis.enumerated()), id: \.offset) { index, emoji in
-//                 CardView(content: emoji)
-//                     .aspectRatio(2/3, contentMode: .fit)
-//             }
-//         }
-//     }
-
-
-// #Preview {
-//     ContentView()
 // }
