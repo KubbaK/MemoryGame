@@ -69,66 +69,82 @@ class MemoGameViewModel : ObservableObject{
 
 
  
+// import SwiftUI
+
+
 // class MemoGameViewModel: ObservableObject {
+//     private static let ikony1 = ["🍎","🍉","🍊","🍒","🍋","🫐","🍌"]
+//     private static let ikony2 = ["🐱","🐷","🐻‍❄️","🐸","🐼","🦁","🐵"]
+//     private static let ikony3 = ["🧑‍🦰","👨‍🦰","👩‍🦰","🧑‍🦱","👦","👧","👩‍🦳"]
+//     public static var theme: Int = 1
+//     var color: Color {
+//            switch MemoGameViewModel.theme {
+//            case 1:
+//                return .red
+//            case 2:
+//                return .green
+//            case 3:
+//                return .blue
+//            default:
+//                return .clear
+//            }
+//        }
     
-//     let emojisTheme1 =  ["😃","😆","🙃","😳","😎","😮"]
-//     let emojisTheme2 = ["🥕", "🍆", "🌽", "🍅","🥕", "🍆"]
-//     let emojisTheme3 = ["🐶", "🐱", "🦁", "🐵", "🐘", "🦊"]
     
-    
-    
-//     private static var emojis:[String] =  ["😃","😆","🙃","😳","😎","😮"]
-    
-//     private static func createMemoGameModel() -> MemoGameModel<String> {
-//         return MemoGameModel<String>(numberOfPairsOfCards: emojis.count) {
-//             index in
-//             if emojis.indices.contains(index) {
-//                 return emojis[index]
-//             }else{
-//                 return "??"
+//     static func createMemoGame(theme: Int)  -> MemoGameModel<String> {
+        
+//         var arrayByTheme: [String]
+//         var pairsByTheme: Int
+        
+//         switch theme {
+//         case 2:
+//             arrayByTheme = ikony2
+//             pairsByTheme = 7
+//         case 3:
+//             arrayByTheme = ikony3
+//             pairsByTheme = 6
+//         default:
+//             arrayByTheme = ikony1
+//             pairsByTheme = 8
+//         }
+        
+//         return MemoGameModel<String>(
+//             numberPairsOfCard: pairsByTheme){index in
+//                     if arrayByTheme.indices.contains(index){
+//                         return arrayByTheme[index]
+//                     }else{
+//                         return "❓"
+//                     }
 //             }
+//     }
+    
+//     @Published private var  model = MemoGameViewModel.createMemoGame(theme: MemoGameViewModel.theme)
+    
+    
+    
+    
+//     var karty: Array<MemoGameModel<String>.Karta>{
+//         return model.karty
+//     }
+    
+
+//     func shuffleWithAnimation() {
+//         withAnimation {
+//             model.shuffle()
 //         }
 //     }
     
-//     @Published private var model = createMemoGameModel()
-    
-//     var cards: Array<MemoGameModel<String>.Card> {
-//         return model.cards
-//     }
-    
-//     private static func setEmojis(newEmojis: [String]){
-//         emojis = newEmojis
-//     }
-    
-//     @Published var themeColor  = Color.blue
-    
-//     func changeTheme(theme: String){
-//         if(theme == "Motyw 2"){
-//             self.themeColor = Color.red
-//             MemoGameViewModel.setEmojis(newEmojis: emojisTheme2)
-//             model = MemoGameViewModel.createMemoGameModel()
-//             shuffle()
-//         }
-//         else if(theme == "Motyw 3"){
-//             self.themeColor = Color.green
-//             MemoGameViewModel.setEmojis(newEmojis: emojisTheme3)
-//             model = MemoGameViewModel.createMemoGameModel()
-//             shuffle()
-//         }
-//         else{
-//             self.themeColor = Color.blue
-//             MemoGameViewModel.setEmojis(newEmojis: emojisTheme1)
-//             model = MemoGameViewModel.createMemoGameModel()
-//             shuffle();
+//     func chooseWithAnimation(karta: MemoGameModel<String>.Karta) {
+//         withAnimation {
+//             model.choose(karta)
 //         }
 //     }
     
-//     func shuffle(){
-//         model.shuffle()
-//     }
     
-//     func choose(card: MemoGameModel<String>.Card){
-//         model.choose(card)
+//     func changeTheme(to theme: Int) {
+//         MemoGameViewModel.theme = theme
+//         model = MemoGameViewModel.createMemoGame(theme: theme)
+//         shuffleWithAnimation()
 //     }
-    
+
 // }
