@@ -40,33 +40,52 @@ struct CardView: View {
 
 
 
-
-
-
 // import SwiftUI
 
-// struct CardView: View {
-//     var card: MemoGameModel<String>.Card
-//     var color: Color
-//     init(_ card:MemoGameModel<String>.Card, _ color: Color) {
-//         self.card = card
-//         self.color = color
+// struct CardView : View {
+//     var karta: MemoGameModel<String>.Karta
+//     var viewModel: MemoGameViewModel
+    
+//     init(_ karta: MemoGameModel<String>.Karta, _ viewModel: MemoGameViewModel) {
+//         self.karta  = karta
+//         self.viewModel = viewModel
 //     }
+    
+    
 //     var body: some View {
-//         ZStack{
-//             let base = RoundedRectangle(cornerRadius: 12)
-//             Group {
-//                 base.fill(Color.white)
-//                 base.strokeBorder(lineWidth: 3)
-//                 Text(card.content).font(.system(size: 200))
-//                     .minimumScaleFactor(0.01)
-//                     .aspectRatio(1,contentMode: .fit)
-                    
-//             }.opacity(card.isFaceUp ? 1 : 0)
-//             base.fill().opacity(card.isFaceUp ? 0 : 1)
-//             }
-//         .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
-//         .foregroundColor(color)
+//         let rectangle = RoundedRectangle(cornerRadius: 12)
+//         ZStack {
+//                 rectangle
+//                 .fill(karta.isFaceUp ? Color.white : viewModel.color)
+//                 .overlay(
+//                     rectangle
+//                         .strokeBorder(lineWidth: 3)
+//                         .opacity(karta.isFaceUp ? 1 : 0)
+//                 )
+//                 .overlay(
+//                     Text(karta.content)
+//                         .font(.system(size: 200))
+//                         .minimumScaleFactor(0.01)
+//                         .aspectRatio(1, contentMode: .fit)
+//                         .opacity(karta.isFaceUp ? 1 : 0)
+
+//                 )
+//         }
+//         .onTapGesture {
+//             viewModel.chooseWithAnimation(karta: karta)
+//         }
         
 //     }
 // }
+
+
+
+
+
+
+//                        .rotation3DEffect(
+//                            .degrees(karta.isFaceUp ? 0 : 180),
+//                            axis: (x: 0.0, y: 1.0, z: 0.0)
+//                        )
+
+
