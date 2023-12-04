@@ -15,3 +15,15 @@ struct MemoryGameApp: App {
         }
     }
 }
+
+
+// import SwiftUI
+
+// @main
+// struct App1App: App {
+//     var body: some Scene {
+//         WindowGroup {
+//             ContentView(viewModel: MemoGameViewModel()).environmentObject(MemoGameViewModel())
+//         }
+//     }
+// }
