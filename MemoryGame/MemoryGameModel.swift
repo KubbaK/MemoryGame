@@ -60,8 +60,11 @@ struct MemoGameModel<CardContent : Equatable> {
     
 //     private var indexOfOneAndOnlyFaceUpCard: Int? {
 //             get {
-//                 let faceUpCardIndices = karty.indices.filter { karty[$0].isFaceUp && !karty[$0].isMatched}
-//                 return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
+//                 let allFaceUpCards = karty.indices.filter
+//                 {
+//                     karty[$0].isFaceUp && !karty[$0].isMatched
+//                 }
+//                 return allFaceUpCards.count == 1 ? allFaceUpCards.first : nil
 //             }
 //             set {
 //                 for index in karty.indices {
@@ -81,29 +84,21 @@ struct MemoGameModel<CardContent : Equatable> {
 //     }
     
 //     mutating func choose(_ karta: Karta) {
-//         let chosenIndex = index(of: karta)
+//         let sprawdzanaKarta = index(of: karta)
         
-
-//         guard !karty[chosenIndex].isFaceUp, !karty[chosenIndex].isMatched else {
-//             return
-//         }
         
+//         if !karty[sprawdzanaKarta].isFaceUp, !karty[sprawdzanaKarta].isMatched  {
 //         if let potentialMatchIndex = indexOfOneAndOnlyFaceUpCard {
      
-//             if karty[chosenIndex].content == karty[potentialMatchIndex].content {
-//                 karty[chosenIndex].isMatched = true
+//             if karty[sprawdzanaKarta].content == karty[potentialMatchIndex].content {
+//                 karty[sprawdzanaKarta].isMatched = true
 //                 karty[potentialMatchIndex].isMatched = true
-//                 print("Takie same")
 //             }
-
-//             print("Nadal odwrocone")
-//             karty[chosenIndex].isFaceUp = true
-    
-            
-            
+//             karty[sprawdzanaKarta].isFaceUp = true
 //         } else {
-//             print("Inne")
-//             indexOfOneAndOnlyFaceUpCard = chosenIndex
+//             indexOfOneAndOnlyFaceUpCard = sprawdzanaKarta
+//         }}else{
+//             return
 //         }
 //     }
 
@@ -120,3 +115,4 @@ struct MemoGameModel<CardContent : Equatable> {
 //         var id: String
 //     }
 // }
+
