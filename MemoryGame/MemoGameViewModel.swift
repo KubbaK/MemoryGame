@@ -128,23 +128,23 @@ class MemoGameViewModel : ObservableObject{
 //     }
     
 
-//     func shuffleWithAnimation() {
+//     func shuffleModel() {
 //         withAnimation {
 //             model.shuffle()
 //         }
 //     }
     
-//     func chooseWithAnimation(karta: MemoGameModel<String>.Karta) {
+//     func chooseAnimated(karta: MemoGameModel<String>.Karta) {
 //         withAnimation {
 //             model.choose(karta)
 //         }
 //     }
     
     
-//     func changeTheme(to theme: Int) {
+//     func setTheme(current theme: Int) {
 //         MemoGameViewModel.theme = theme
 //         model = MemoGameViewModel.createMemoGame(theme: theme)
-//         shuffleWithAnimation()
+//         shuffleModel()
 //     }
 
 // }
