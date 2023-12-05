@@ -125,7 +125,7 @@ struct ContentView: View {
 //                     .aspectRatio(2/3, contentMode: .fit)
 //                     .padding(4)
 //                     .onTapGesture {
-//                         viewModel.chooseWithAnimation(karta: karta)
+//                         viewModel.chooseAnimated(karta: karta)
 //                     }
 //             }
 //         }.foregroundColor(viewModel.color)
@@ -138,28 +138,24 @@ struct ContentView: View {
 //                 karty
 //             }
 //             Button("SHUFFLE") {
-//                 viewModel.shuffleWithAnimation()
-//             }
+//                 viewModel.shuffleModel()
+//             }.foregroundColor(viewModel.color)
 //             Spacer()
 //             HStack{
-//                 ButtonView(action: {
-//                     viewModel.changeTheme(to: 1)}, symbol: Image(systemName: "star.fill") , text: "Motyw 1").foregroundColor(viewModel.color)
+//                 Buttons(symbol: Image(systemName: "star.fill"), text: "Motyw 1", action: {
+//                             viewModel.setTheme(current: 1)}).foregroundColor(viewModel.color)
 //                 Spacer()
-//                 ButtonView(action: {
-//                     viewModel.changeTheme(to: 2)}, symbol: Image(systemName:"star.fill"), text: "Motyw 2").foregroundColor(viewModel.color)
+//                 Buttons(symbol: Image(systemName:"star.fill"), text: "Motyw 2", action: {
+//                             viewModel.setTheme(current: 2)}).foregroundColor(viewModel.color)
 //                 Spacer()
-//                 ButtonView(action: {
-//                             viewModel.changeTheme(to: 3)}, symbol: Image(systemName: "star.fill"), text: "Motyw 3").foregroundColor(viewModel.color)
+//                 Buttons(symbol: Image(systemName: "star.fill"), text: "Motyw 3", action: {
+//                             viewModel.setTheme(current: 3)}).foregroundColor(viewModel.color)
 //             }
 //             Spacer()
 //         }
 //         .padding()
 //     }
 // }
-
-
-
-
 // struct ContentView_Previews: PreviewProvider {
 //     static var previews: some View {
 //         ContentView(viewModel: MemoGameViewModel())
