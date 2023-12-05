@@ -39,8 +39,7 @@ struct CardView: View {
 
 
 
-
-// import SwiftUI
+//   import SwiftUI
 
 // struct CardView : View {
 //     var karta: MemoGameModel<String>.Karta
@@ -51,41 +50,26 @@ struct CardView: View {
 //         self.viewModel = viewModel
 //     }
     
-    
 //     var body: some View {
-//         let rectangle = RoundedRectangle(cornerRadius: 12)
-//         ZStack {
-//                 rectangle
-//                 .fill(karta.isFaceUp ? Color.white : viewModel.color)
+//             CirclePart(endAngle: .degrees(240))
+//                 .opacity(0.4)
 //                 .overlay(
-//                     rectangle
-//                         .strokeBorder(lineWidth: 3)
-//                         .opacity(karta.isFaceUp ? 1 : 0)
+//                    Text(karta.content)
+//                        .font(.system(size: 200))
+//                        .minimumScaleFactor(0.01)
+//                        .aspectRatio(1, contentMode: .fit)
+//                        .opacity(karta.isFaceUp ? 1 : 0)
 //                 )
-//                 .overlay(
-//                     Text(karta.content)
-//                         .font(.system(size: 200))
-//                         .minimumScaleFactor(0.01)
-//                         .aspectRatio(1, contentMode: .fit)
-//                         .opacity(karta.isFaceUp ? 1 : 0)
+//                 .padding(5)
+//                 .transformIntoCard(isFaceUp: karta.isFaceUp)
+//             .onTapGesture {
+//                 withAnimation{
+//                     viewModel.chooseAnimated(karta: karta)
+//                 }
 
-//                 )
+//             }
+
 //         }
-//         .onTapGesture {
-//             viewModel.chooseWithAnimation(karta: karta)
-//         }
-        
 //     }
-// }
-
-
-
-
-
-
-//                        .rotation3DEffect(
-//                            .degrees(karta.isFaceUp ? 0 : 180),
-//                            axis: (x: 0.0, y: 1.0, z: 0.0)
-//                        )
 
 
